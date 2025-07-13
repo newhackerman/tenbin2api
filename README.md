@@ -1,4 +1,4 @@
-# tenbin2api，感谢 linux.do 的大佬们
+# tenbin2api，感谢 linux 的大佬们
 
 ## 生成 session id，放到 tenbin.json
 - session_id 获取方法： 登录 tenbin.ai后，按F12，转到应用-左侧-cookies ： session_id的值，复制出来填入tenbin.json
