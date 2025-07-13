@@ -2,7 +2,7 @@
 
 ## 生成 session id，放到 tenbin.json
 - session_id 获取方法： 登录 tenbin.ai后，按F12，转到应用-左侧-cookies ： session_id的值，复制出来填入tenbin.json
-## 准备环境
+## 准备环境及启动
 - 新开一个 PowerShell窗口
 - git clone https://github.com/newhackerman/tenbin2api.git
 - cd tenbin2api
@@ -15,6 +15,9 @@
 - 新开一个 PowerShell窗口，执行 venv\Scripts\activate，然后执行 python serve_chat.py
 - web端使用  http://127.0.0.1:8402/chat.html
 - 客户端使用 http://127.0.0.1:8401/v1/models 获取模型列表，API KEY 从 client_api_keys.json 获取
-
-
+## docker 部署
+- cd tenbin2api
+- docker build -t tenbin2api .
+- docker run -p 8401:8401 -p 8402:8402 tenbin2api
+- web端使用  http:/dockerip:8402/chat.html  //docker 所在的服务端口要能外网访问
 ## 本项目只做学习使用，请遵守tenbin.ai官方的约定下使用，否则，请不要下载及使用
