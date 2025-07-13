@@ -39,7 +39,8 @@ RUN python3 -m playwright install chromium && \
 
 # 复制项目文件到容器
 COPY . .
-
+COPY ./input-network.zip /usr/local/lib/python3.11/site-packages/browserforge/headers/data/input-network.zip 
+RUN chmod 777 /usr/local/lib/python3.11/site-packages/browserforge/headers/data/input-network.zip
 # 创建必要的目录
 RUN mkdir -p /app/logs
 
