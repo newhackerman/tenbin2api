@@ -2,7 +2,7 @@
 
 ## 生成 session id，放到 tenbin.json
 - session_id 获取方法： 登录 tenbin.ai后，按F12，转到应用-左侧-cookies ： session_id的值，复制出来填入tenbin.json
-## 准备环境及启动
+## 本地运行
 - 新开一个 PowerShell窗口
 - git clone https://github.com/newhackerman/tenbin2api.git
 - cd tenbin2api
