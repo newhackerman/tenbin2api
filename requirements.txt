@@ -1,0 +1,28 @@
+# FamilyAI 伴侣 API 项目依赖
+
+# 现有依赖
+quart
+quart-cors
+asyncio
+argparse
+patchright
+camoufox[geoip]
+fastapi
+websocket-client
+uvicorn
+hypercorn
+
+# 浏览器自动化相关依赖
+browserforge>=0.11.0
+playwright>=1.40.0
+selenium>=4.15.0
+undetected-chromedriver>=3.5.4
+
+# 新增依赖
+requests>=2.31.0
+pydantic>=2.5.0
+python-multipart>=0.0.6
+aiofiles>=23.2.1
+python-dotenv>=1.0.0
+structlog>=23.2.0
+psutil>=5.9.6

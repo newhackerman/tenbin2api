@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  tenbin-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: tenbin-ai-assistant
+    ports:
+      - "8401:8401"  # API服务端口
+      - "8402:8402"  # 聊天界面端口
+    volumes:
+      - ./data:/app/data
+      - ./tenbin.json:/app/tenbin.json
+      - ./client_api_keys.json:/app/client_api_keys.json
+      - ./models.json:/app/models.json
+    environment:
+      - DEBUG_MODE=false
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8401/models"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tenbin-network
+
+networks:
+  tenbin-network:
+    driver: bridge

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple API Test</title>
+</head>
+<body>
+    <h1>API Connection Test</h1>
+    <button onclick="testAPI()">Test API Connection</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8401/models');
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.innerHTML = `<p style="color: green;">SUCCESS! Found ${data.data.length} models</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p style="color: red;">ERROR: ${response.status}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">ERROR: ${error.message}</p>`;
+            }
+        }
+        
+        // Auto test when page loads
+        window.addEventListener('load', testAPI);
+    </script>
+</body>
+</html>
